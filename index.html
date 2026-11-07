@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GameZone</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #10111c;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+header {
+  background: #191b2e;
+  padding: 25px;
+  text-align: center;
+  border-bottom: 2px solid #7655ff;
+}
+h1 { color: #987cff; margin: 5px; font-size: 36px; }
+header p { color: #aaa; }
+.search {
+  display: block;
+  margin: 25px auto;
+  padding: 15px;
+  width: 85%;
+  max-width: 500px;
+  border-radius: 12px;
+  border: 1px solid #7655ff;
+  background: #202237;
+  color: white;
+  font-size: 16px;
+}
+main { padding: 20px; max-width: 1000px; margin: auto; }
+h2 { color: #b6a3ff; }
+.games {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap: 18px;
+}
+.game {
+  background: #202237;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  border: 1px solid #343653;
+  transition: .2s;
+}
+.game:hover {
+  transform: translateY(-5px);
+  border-color: #987cff;
+}
+.game a {
+  display: inline-block;
+  margin-top: 12px;
+  background: #7655ff;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.game a:hover { background: #987cff; }
+.emoji { font-size: 40px; }
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #888;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🎮 GameZone</h1>
+  <p>Your place to discover awesome games!</p>
+</header>
+
+<input class="search" id="search"
+placeholder="🔎 Search for games..."
+oninput="searchGames()">
+
+<main>
+  <h2>🔥 Popular Games</h2>
+  <div class="games" id="games">
+
+    <div class="game">
+      <div class="emoji">🏎️</div>
+      <h3>Racing</h3>
+      <p>Speed and driving games</p>
+      <a href="https://itch.io/games/tag-racing"
+      target="_blank">Play Games</a>
+    </div>
+
+    <div class="game">
+      <div class="emoji">🏀</div>
+      <h3>Sports</h3>
+      <p>Sports and competition</p>
+      <a href="https://itch.io/games/tag-sports"
+      target="_blank">Play Games</a>
+    </div>
+
+    <div class="game">
+      <div class="emoji">🧩</div>
+      <h3>Puzzle</h3>
+      <p>Challenge your brain</p>
+      <a href="https://itch.io/games/tag-puzzle"
+      target="_blank">Play Games</a>
+    </div>
+
+    <div class="game">
+      <div class="emoji">🕹️</div>
+      <h3>Arcade</h3>
+      <p>Classic arcade games</p>
+      <a href="https://itch.io/games/tag-arcade"
+      target="_blank">Play Games</a>
+    </div>
+
+    <div class="game">
+      <div class="emoji">🧠</div>
+      <h3>Strategy</h3>
+      <p>Think and plan your moves</p>
+      <a href="https://itch.io/games/tag-strategy"
+      target="_blank">Play Games</a>
+    </div>
+
+    <div class="game">
+      <div class="emoji">🌟</div>
+      <h3>Adventure</h3>
+      <p>Explore new worlds</p>
+      <a href="https://itch.io/games/tag-adventure"
+      target="_blank">Play Games</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  Made with ❤️ by GameZone
+</footer>
+
+<script>
+function searchGames() {
+  let input = document.getElementById("search").value.toLowerCase();
+  document.querySelectorAll(".game").forEach(game => {
+    game.style.display = game.innerText.toLowerCase().includes(input)
+      ? "block" : "none";
+  });
+}
+</script>
+
+</body>
+</html>
